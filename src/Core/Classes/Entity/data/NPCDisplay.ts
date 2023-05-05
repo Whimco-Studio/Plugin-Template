@@ -1,5 +1,4 @@
 import Object from "@rbxts/object-utils";
-import createConfigValue, { checkIfBool, checkIfColor3, checkIfNumber, checkIfString } from "Plugin/Modules/Config";
 import CustomNPC from "../CustomNPC";
 
 type ConfigValue = StringValue | BoolValue | NumberValue | Color3Value | ObjectValue | CFrameValue | Vector3Value;

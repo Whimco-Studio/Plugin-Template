@@ -1,8 +1,7 @@
 import Object from "@rbxts/object-utils";
 import { ReplicatedStorage } from "@rbxts/services";
-import PluginBindables from "Plugin/Events";
-import convertToConfiguration from "Start/Manager/Compiling/Compile";
 import Faction from "./data/Faction";
+import Bindings from "Core/Bin/Config/Binds";
 
 const CreatedIDsCache: { [key: number]: string } = {};
 
@@ -28,7 +27,7 @@ export default class FactionHandler implements IFactionHandler {
 		this.create("Enemy", new Color3(1, 0, 0));
 		this.create("Friendly", new Color3(0, 1, 0));
 
-		PluginBindables.CompileManager.Fire("Factions");
+		Bindings.Core.Compiling.CompileTable.Invoke("Factions");
 	}
 
 	monitor() {}
@@ -44,7 +43,7 @@ export default class FactionHandler implements IFactionHandler {
 
 		this.Factions.push(NewFaction);
 
-		PluginBindables.CompileManager.Fire("Factions");
+		Bindings.Core.Compiling.CompileTable.Invoke("Factions");
 		return NewFaction;
 	}
 
@@ -71,6 +70,6 @@ export default class FactionHandler implements IFactionHandler {
 			}
 		});
 
-		PluginBindables.CompileManager.Fire("Factions");
+		Bindings.Core.Compiling.CompileTable.Invoke("Factions");
 	}
 }

@@ -1,5 +1,5 @@
 import { CollectionService } from "@rbxts/services";
-import NPCManager from "Start/Manager/Manager";
+import Bindings from "Core/Bin/Config/Binds";
 
 type EntityProperties = {
 	Character: Model | Actor;
@@ -245,7 +245,7 @@ export default class Entity implements IEntity<Humanoid, BasePart, HumanoidDescr
 	 * @param {string} name
 	 */
 	storeAsClone(tab: number, name: string): void {
-		NPCManager.StoreAsClone(tab, name, this.Character);
+		Bindings.Core.Entity.SaveAsClone.Invoke(tab, name, this.Character);
 	}
 
 	/**

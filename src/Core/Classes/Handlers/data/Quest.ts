@@ -1,4 +1,3 @@
-import NPCManager from "Start/Manager/Manager";
 import QuestType from "../../Constants/QuestType";
 import CustomNPC from "../../Entity/CustomNPC";
 
@@ -71,7 +70,6 @@ export default class Quest implements IQuest {
 		this.QuestCategory = Info.QuestCategory;
 
 		this.Completeted = false;
-		// this.CompletetedEvent = NPCManager.QuestCompleted;
 		this.IsRepeatable = Info.IsRepeatable || false;
 
 		this.Npc = Info.Npc;

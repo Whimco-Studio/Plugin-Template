@@ -1,6 +1,6 @@
 import Object from "@rbxts/object-utils";
 import { Array } from "@rbxts/sift";
-import PluginBindables from "Plugin/Events";
+import Bindings from "Core/Bin/Config/Binds";
 
 function color3ToHex(c3: Color3) {
 	const r = math.floor(c3.R * 255);
@@ -43,7 +43,7 @@ export default class Faction implements IFaction {
 	}
 
 	update() {
-		PluginBindables.CompileManager.Fire("Factions");
+		Bindings.Core.Compiling.CompileTable.Invoke("Factions");
 	}
 
 	getId(): number {

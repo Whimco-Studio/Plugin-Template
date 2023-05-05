@@ -1,8 +1,8 @@
-import PluginBindables from "Plugin/Events";
 import OptionType from "../../Constants/OptionType";
 import DialogCategory from "./DialogCategory";
 import DialogOption from "./DialogOption";
 import Quest from "./Quest";
+import Bindings from "Core/Bin/Config/Binds";
 
 const CreatedIDsCache: {
 	[key: number]: string;
@@ -97,7 +97,7 @@ export default class Dialog implements IDialog {
 	}
 
 	getCategory(): IDialogCategory {
-		return PluginBindables.GetDialogCategory.Invoke(this.CategoryID);
+		return Bindings.Core.Dialog.GetDialogCategory.Invoke(this.CategoryID);
 	}
 
 	save(): void {}

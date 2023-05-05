@@ -1,6 +1,6 @@
 import Object from "@rbxts/object-utils";
-import PluginBindables from "Plugin/Events";
 import DialogCategory from "./data/DialogCategory";
+import Bindings from "Core/Bin/Config/Binds";
 
 const CreatedIDsCache: {
 	[key: number]: string;
@@ -27,7 +27,7 @@ export default class DialogHandler implements IDialogHandler {
 		this.DialogsCategories = [];
 		this.CustomDialogGUI = false;
 
-		PluginBindables.CompileManager.Fire("Dialogs");
+		Bindings.Core.Compiling.CompileTable.Invoke("Dialogs");
 	}
 
 	categories(): IDialogCategory[] {
@@ -41,7 +41,7 @@ export default class DialogHandler implements IDialogHandler {
 
 		this.DialogsCategories.push(newCategory);
 
-		PluginBindables.CompileManager.Fire("Dialogs");
+		Bindings.Core.Compiling.CompileTable.Invoke("Dialogs");
 
 		return newCategory;
 	}

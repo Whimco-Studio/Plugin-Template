@@ -1,4 +1,3 @@
-import PluginBindables from "Plugin/Events";
 import Dialog from "./Dialog";
 
 type DialogCategoryProperties = {

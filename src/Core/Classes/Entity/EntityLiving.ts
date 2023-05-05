@@ -1,5 +1,5 @@
 import { CollectionService } from "@rbxts/services";
-import Entity from "Plugin/Modules/Info/Entity";
+import Entity from "Core/Info/Entity";
 
 type EntityLivingProperties = {
 	Character: Model | Actor;

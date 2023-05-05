@@ -1,4 +1,4 @@
-import CustomNPC from "Plugin/Modules/Classes/Entity/CustomNPC";
+import CustomNPC from "Core/Classes/Entity/CustomNPC";
 import Quest from "./Quest";
 
 export class QuestCategory implements IQuestCategory {
