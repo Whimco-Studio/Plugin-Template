@@ -1,0 +1,3 @@
+class TransportsHandler {
+	constructor() {}
+}

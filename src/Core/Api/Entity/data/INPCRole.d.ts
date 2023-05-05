@@ -1,0 +1,3 @@
+interface INPCRole {
+	getType(): number;
+}
