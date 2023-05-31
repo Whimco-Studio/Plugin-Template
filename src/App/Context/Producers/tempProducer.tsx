@@ -5,10 +5,10 @@ const InitialState = {
 	SelectedTab: "Display",
 };
 
-const pageProducer = createProducer(InitialState, {
+const tempProducer = createProducer(InitialState, {
 	set: (state, tab: string) => ({ ...state, SelectedTab: tab }),
 });
 
-export const useAppProducer: UseProducerHook<typeof pageProducer> = useProducer;
+export const useAppProducer: UseProducerHook<typeof tempProducer> = useProducer;
 
-export default pageProducer;
+export default tempProducer;

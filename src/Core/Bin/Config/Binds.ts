@@ -6,18 +6,7 @@ const cache: { [key: string]: ModuleScript } = {};
 
 const Bindings = {
 	Core: {
-		Entity: {
-			CreateNPC: new Instance("BindableFunction"),
-			SaveAsClone: new Instance("BindableFunction"),
-			EntitySafeguard: new Instance("BindableFunction"),
-		},
-		Compiling: {
-			CompileAll: new Instance("BindableFunction"),
-			CompileTable: new Instance("BindableFunction"),
-		},
-		Dialog: {
-			GetDialogCategory: new Instance("BindableFunction"),
-		},
+
 	},
 	Interface: {
 		IndexRoutes: new Instance("BindableFunction"),
@@ -35,10 +24,8 @@ Bindings.Interface.RouteSafeGuard.OnInvoke = (Route: string) => {
 };
 
 Bindings.Interface.IndexRoutes.OnInvoke = (Route: string) => {
-	print(RouteInfo.Routes?.GetDescendants());
 	const QueriedRoute = cache[Route] || RouteInfo.Routes?.FindFirstChild(Route, true);
 
-	print(QueriedRoute);
 	if (QueriedRoute) {
 		cache[Route] = QueriedRoute;
 		const Component = require(QueriedRoute as ModuleScript) as {

@@ -7,7 +7,7 @@ interface ErrorPageProps {
 	error?: string;
 }
 
-const ErrorPage: Roact.FunctionComponent<ErrorPageProps> = (props) => {
+const ErrorPage: Roact.FunctionComponent<ErrorPageProps> = (props: ErrorPageProps) => {
 	return (
 		<frame>
 			<Label Text={props.error} />

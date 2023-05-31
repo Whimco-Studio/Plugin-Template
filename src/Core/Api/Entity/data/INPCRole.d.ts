@@ -1,3 +1,0 @@
-interface INPCRole {
-	getType(): number;
-}
