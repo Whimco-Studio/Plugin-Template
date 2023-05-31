@@ -1,9 +1,11 @@
 import Roact from "@rbxts/roact";
 import ButtonLabel from "App/Components/Base/ButtonLabel";
+import CarouselContainer from "App/Components/Base/CarouselContainer";
 import InputLabel from "App/Components/Base/InputLabel";
 import LabelContainer from "App/Components/Base/LabelContainer";
 import StyledButton from "App/Components/Base/StyledButton";
 import {
+	ContainedLabelSize,
 	ContainedLabelSizeHalfWidth,
 	ContainedLabelSizeHeightFull,
 	LabelSize,
@@ -31,11 +33,28 @@ const Advanced: Roact.FunctionComponent<AdvancedProps> = (props) => {
 				FillDirection={Enum.FillDirection.Vertical}
 				Padding={new UDim(0.025, 0)}
 				HorizontalAlignment={Enum.HorizontalAlignment.Center}
+				SortOrder={Enum.SortOrder.LayoutOrder}
+			/>
+			{/* <LabelContainer
+				Key={tostring(0)}
+				LayoutOrder={0 + 1}
+				Size={LabelSize}
+				Padding={new UDim(0.025, 0)}
+				HorizontalAlignment={Enum.HorizontalAlignment.Center}
+			>
+				
+			</LabelContainer> */}
+			<CarouselContainer
+				LayoutOrder={0}
+				Size={ContainedLabelSize}
+				CurrentSelection="Test"
+				Options={["Test", "Failed", "Success"]}
 			/>
 			{ButtonNames.map((element, index) => {
 				return (
 					<LabelContainer
 						Key={tostring(index)}
+						LayoutOrder={index + 3}
 						Size={LabelSize}
 						Padding={new UDim(0.025, 0)}
 						HorizontalAlignment={Enum.HorizontalAlignment.Center}

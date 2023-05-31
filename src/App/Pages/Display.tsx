@@ -14,8 +14,8 @@ export default function Display(props: DisplayProps) {
 	return (
 		<frame BackgroundTransparency={1} Size={UDim2.fromScale(1, 1)}>
 			<uilistlayout FillDirection={Enum.FillDirection.Vertical} />
-			<LabelContainer Size={LabelSizeHalfWidth}>
-				<InputLabel Size={ContainedLabelSize} name="Name" text="" onSubmit={() => {}} />
+			<LabelContainer Size={LabelSizeHalfWidth} Padding={new UDim(0.1, 0)}>
+				<InputLabel Size={ContainedLabelSizeHalfWidth} name="Name" text="" onSubmit={() => {}} />
 				<StyledButton Size={ContainedLabelSizeHalfWidth} name="Visible" />
 			</LabelContainer>
 			{/* <VerticalCollapsibleSection OnToggled={() => {}}>

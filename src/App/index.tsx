@@ -25,7 +25,7 @@ function App(props: AppProps) {
 	useEffect(() => {
 		const selectURL = (state: RootState) => state.page;
 		const unsubscribeFromLink = producer.subscribe(selectURL, (url, prevUrl) => {
-			print(`Routing from ${prevUrl} to ${url}`);
+			// print(`Routing from ${prevUrl} to ${url}`);
 			setUrl(url.SelectedTab);
 		});
 		return () => {
@@ -37,6 +37,8 @@ function App(props: AppProps) {
 
 	function renderSelectedTab() {
 		const RouteSafeGuard = Interface.RouteSafeGuard.Invoke(url) as boolean;
+
+		print(url, RouteSafeGuard);
 		if (RouteSafeGuard) {
 			const Component = Interface.IndexRoutes.Invoke(url) as () => Roact.Element;
 			return <Component />;

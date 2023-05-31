@@ -3,6 +3,7 @@ import ButtonLabel from "App/Components/Base/ButtonLabel";
 import InputLabel from "App/Components/Base/InputLabel";
 import LabelContainer from "App/Components/Base/LabelContainer";
 import { LabelSize, LabelSizeThirdWidth } from "App/Config/Sizing";
+import { producer } from "App/Context/Producers";
 
 // Stats
 
@@ -19,17 +20,20 @@ const Stats: Roact.FunctionComponent<StatsProps> = (props) => {
 					name={"AggroRange"}
 					text={"Test"}
 				/>
-				<ButtonLabel
+				{/* <ButtonLabel
 					Size={UDim2.fromScale(LabelSizeThirdWidth.Width.Scale, 1)}
 					name={"CreatureType"}
 					text={"Test"}
-				/>
+				/> */}
 			</LabelContainer>
 			<LabelContainer Key={"2"} Size={LabelSize} Padding={new UDim(0.025, 0)}>
 				<ButtonLabel
 					Size={UDim2.fromScale(LabelSizeThirdWidth.Width.Scale, 1)}
 					name={"Respawn"}
 					text={"Edit"}
+					OnActivated={() => {
+						producer.set("StatsRespawn");
+					}}
 				/>
 			</LabelContainer>
 			<LabelContainer Key={"3"} Size={LabelSize} Padding={new UDim(0.025, 0)}>
@@ -37,6 +41,9 @@ const Stats: Roact.FunctionComponent<StatsProps> = (props) => {
 					Size={UDim2.fromScale(LabelSizeThirdWidth.Width.Scale, 1)}
 					name={"MeleeOptions"}
 					text={"Edit"}
+					OnActivated={() => {
+						producer.set("MeleeOptions");
+					}}
 				/>
 			</LabelContainer>
 			<LabelContainer Key={"4"} Size={LabelSize} Padding={new UDim(0.025, 0)}>
@@ -44,6 +51,9 @@ const Stats: Roact.FunctionComponent<StatsProps> = (props) => {
 					Size={UDim2.fromScale(LabelSizeThirdWidth.Width.Scale, 1)}
 					name={"RangedOptions"}
 					text={"Edit"}
+					OnActivated={() => {
+						producer.set("RangedOptions");
+					}}
 				/>
 				<ButtonLabel
 					Size={UDim2.fromScale(LabelSizeThirdWidth.Width.Scale, 1)}

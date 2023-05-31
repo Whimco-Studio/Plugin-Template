@@ -2,10 +2,14 @@ import Roact from "@rbxts/roact";
 import ErrorPage from "App/Pages/Error";
 import { RouteInfo } from "../../../App/Config/Settings";
 
+const cache: { [key: string]: ModuleScript } = {};
+
 const Bindings = {
 	Core: {
 		Entity: {
+			CreateNPC: new Instance("BindableFunction"),
 			SaveAsClone: new Instance("BindableFunction"),
+			EntitySafeguard: new Instance("BindableFunction"),
 		},
 		Compiling: {
 			CompileAll: new Instance("BindableFunction"),
@@ -22,7 +26,7 @@ const Bindings = {
 };
 
 Bindings.Interface.RouteSafeGuard.OnInvoke = (Route: string) => {
-	const QueriedRoute = RouteInfo.Routes?.FindFirstChild(Route, true);
+	const QueriedRoute = cache[Route] || RouteInfo.Routes?.FindFirstChild(Route, true);
 	if (QueriedRoute) {
 		return true;
 	} else {
@@ -31,8 +35,12 @@ Bindings.Interface.RouteSafeGuard.OnInvoke = (Route: string) => {
 };
 
 Bindings.Interface.IndexRoutes.OnInvoke = (Route: string) => {
-	const QueriedRoute = RouteInfo.Routes?.FindFirstChild(Route, true);
+	print(RouteInfo.Routes?.GetDescendants());
+	const QueriedRoute = cache[Route] || RouteInfo.Routes?.FindFirstChild(Route, true);
+
+	print(QueriedRoute);
 	if (QueriedRoute) {
+		cache[Route] = QueriedRoute;
 		const Component = require(QueriedRoute as ModuleScript) as {
 			default: Roact.Element;
 		};

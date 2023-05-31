@@ -7,7 +7,7 @@ import { LabelSize } from "App/Config/Sizing";
 interface InputLabelProps {
 	Size?: UDim2;
 	name: string;
-	text: string;
+	text: string | number;
 	LayoutOrder?: number;
 	onSubmit?: (text: string) => void;
 }
@@ -25,7 +25,7 @@ export default function InputLabel(props: InputLabelProps) {
 			</Label>
 			<TextInput
 				LayoutOrder={2}
-				Text={props.text}
+				Text={tostring(props.text)}
 				Size={UDim2.fromScale(0.75, 1)}
 				OnFocusLost={(text: string, enterPressed) => {
 					if (props.onSubmit) {
