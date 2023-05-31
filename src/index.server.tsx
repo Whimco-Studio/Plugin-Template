@@ -6,8 +6,8 @@ import { withHookDetection } from "@rbxts/roact-hooked";
 import { ReflexProvider } from "@rbxts/roact-reflex";
 import { producer } from "App/Context/Producers";
 
-const toolbar = plugin.CreateToolbar("CustomNPCs");
-const button = toolbar.CreateButton("CustomNPCS", "", "");
+const toolbar = plugin.CreateToolbar("Plugin Name");
+const button = toolbar.CreateButton("Button Name", "", "");
 
 const widgetInfo = new DockWidgetPluginGuiInfo(
 	Enum.InitialDockState.Float, // Widget will be initialized in floating panel
@@ -21,22 +21,22 @@ const widgetInfo = new DockWidgetPluginGuiInfo(
 	// 500, // Minimum height of the floating window (optional)
 );
 
-const CustomNPCsWidget = plugin.CreateDockWidgetPluginGui("CustomNPCsWidget", widgetInfo);
+const DockWidget = plugin.CreateDockWidgetPluginGui("DockWidget", widgetInfo);
 
 if (game.GetService("RunService").IsEdit()) {
 	withHookDetection(Roact);
 
 	Roact.mount(
 		<ReflexProvider producer={producer}>
-			<App DockWidgetPluginGui={CustomNPCsWidget} />
+			<App DockWidgetPluginGui={DockWidget} />
 		</ReflexProvider>,
-		CustomNPCsWidget,
+		DockWidget,
 		"HelloWorld",
 	);
 }
 
-CustomNPCsWidget.Title = "Custom NPCs";
+DockWidget.Title = "Custom NPCs";
 
 button.Click.Connect(() => {
-	CustomNPCsWidget.Enabled = !CustomNPCsWidget.Enabled;
+	DockWidget.Enabled = !DockWidget.Enabled;
 });
